@@ -63,7 +63,7 @@ export default class CreditCardInput extends Component {
     cardBrandIcons: PropTypes.object,
 
     allowScroll: PropTypes.bool,
-
+    contentContainerStyle,
     additionalInputsProps: PropTypes.objectOf(PropTypes.shape(TextInput.propTypes)),
   };
 
@@ -144,7 +144,7 @@ export default class CreditCardInput extends Component {
       cardImageFront, cardImageBack, inputContainerStyle,
       values: { number, expiry, cvc, name, type }, focused,
       allowScroll, requiresName, requiresCVC, requiresPostalCode,
-      cardScale, cardFontFamily, cardBrandIcons,
+      cardScale, cardFontFamily, cardBrandIcons, contentContainerStyle
     } = this.props;
 
     return (
@@ -165,7 +165,8 @@ export default class CreditCardInput extends Component {
           keyboardShouldPersistTaps="always"
           scrollEnabled={allowScroll}
           showsHorizontalScrollIndicator={false}
-          style={s.form}>
+          style={s.form}
+          contentContainerStyle={contentContainerStyle}>
           <CCInput {...this._inputProps("number")}
             keyboardType="numeric"
             containerStyle={[s.inputContainer, inputContainerStyle, { width: CARD_NUMBER_INPUT_WIDTH }]} />
